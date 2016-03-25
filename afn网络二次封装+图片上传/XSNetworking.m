@@ -137,10 +137,12 @@
                 break;
             }
         }
+        // base 64
         NSString *encodeResult = [imageData base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithLineFeed];
         [arrayImages addObject:encodeResult];
     }
     [parameter setValue:[self JSONString:arrayImages] forKey:imageIdentifier];
+    
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain",@"text/json",@"application/json",@"text/javascript",@"text/html",nil];
     [manager POST:url parameters:parameter success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {

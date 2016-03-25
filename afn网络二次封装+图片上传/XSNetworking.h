@@ -34,7 +34,9 @@ typedef NS_ENUM(NSInteger, ImageCompressionType) {
                         methods:(MethodsType)methods
                   successResult:(void (^)(id result))successBlock
                      failResult:(void (^)(id error))failBlock;
-
+/****************************************************************************/
+        /*************具体图片上传的方法还是要看后台怎么给说明**************/
+/****************************************************************************/
 /**
  *  以文件流形式上传图片
  *
