@@ -14,6 +14,11 @@ typedef NS_ENUM(NSInteger, MethodsType) {
     GETMethodsType      = 1,
 };
 
+typedef NS_ENUM(NSInteger, ImageCompressionType) {
+    PNGType     = 0,
+    JPGType     = 1,
+};
+
 @interface XSNetworking : NSObject
 /**
  *  网络请求
@@ -48,9 +53,28 @@ typedef NS_ENUM(NSInteger, MethodsType) {
                       parameter:(NSDictionary *)parameter
                           image:(UIImage *)image
                            name:(NSString *)name
+                compressionType:(ImageCompressionType)compressionType
                        mimeType:(NSString  *)mimeType
                       imageSize:(CGSize)imageSize
                 imageIdentifier:(NSString *)imageIdentifier
                   successResult:(void (^)(id result))successBlock
                      failResult:(void (^)(id error))failBlock;
+/**
+ *  多张图片上传
+ *
+ *  @param url       url
+ *  @param parameter dic(body)
+ *  @param imageSize 图片的尺寸
+ *  @param images    图片数组
+ *  @param compressionType png / jpg
+ *  @param imageIdentifier 后台给的标识
+ */
++ (void)XSUploadManyImagesNetworkRequestWithURL:(NSString *)url
+                                      parameter:(NSMutableDictionary *)parameter
+                                      imageSize:(CGSize)imageSize
+                                compressionType:(ImageCompressionType)compressionType
+                                      imageIdentifier:(NSString *)imageIdentifier
+                                         images:(NSMutableArray *)images
+                                  successResult:(void (^)(id result))successBlock
+                                     failResult:(void (^)(id error))failBlock;
 @end

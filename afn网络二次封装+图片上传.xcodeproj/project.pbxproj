@@ -15,7 +15,7 @@
 		BC53BF661CA50EF1004CCA88 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC53BF641CA50EF1004CCA88 /* LaunchScreen.storyboard */; };
 		BC53BF711CA50EF2004CCA88 /* afn___________Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = BC53BF701CA50EF2004CCA88 /* afn___________Tests.m */; };
 		BC53BF7C1CA50EF2004CCA88 /* afn___________UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BC53BF7B1CA50EF2004CCA88 /* afn___________UITests.m */; };
-		BC53BF8B1CA50F2E004CCA88 /* XSNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = BC53BF8A1CA50F2E004CCA88 /* XSNetworking.m */; };
+		BC53BF951CA53401004CCA88 /* XSNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = BC53BF931CA53401004CCA88 /* XSNetworking.m */; };
 		FF534E07A0FC7FE0349FD3F7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C7B85ACFBA038C0A0716737 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -56,8 +56,8 @@
 		BC53BF771CA50EF2004CCA88 /* afn网络二次封装+图片上传UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "afn网络二次封装+图片上传UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC53BF7B1CA50EF2004CCA88 /* afn___________UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "afn___________UITests.m"; sourceTree = "<group>"; };
 		BC53BF7D1CA50EF2004CCA88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BC53BF891CA50F2E004CCA88 /* XSNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSNetworking.h; sourceTree = "<group>"; };
-		BC53BF8A1CA50F2E004CCA88 /* XSNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSNetworking.m; sourceTree = "<group>"; };
+		BC53BF931CA53401004CCA88 /* XSNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSNetworking.m; sourceTree = "<group>"; };
+		BC53BF941CA53401004CCA88 /* XSNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSNetworking.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,8 +120,8 @@
 		BC53BF551CA50EF1004CCA88 /* afn网络二次封装+图片上传 */ = {
 			isa = PBXGroup;
 			children = (
-				BC53BF891CA50F2E004CCA88 /* XSNetworking.h */,
-				BC53BF8A1CA50F2E004CCA88 /* XSNetworking.m */,
+				BC53BF931CA53401004CCA88 /* XSNetworking.m */,
+				BC53BF941CA53401004CCA88 /* XSNetworking.h */,
 				BC53BF591CA50EF1004CCA88 /* AppDelegate.h */,
 				BC53BF5A1CA50EF1004CCA88 /* AppDelegate.m */,
 				BC53BF5C1CA50EF1004CCA88 /* ViewController.h */,
@@ -350,7 +350,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC53BF8B1CA50F2E004CCA88 /* XSNetworking.m in Sources */,
+				BC53BF951CA53401004CCA88 /* XSNetworking.m in Sources */,
 				BC53BF5E1CA50EF1004CCA88 /* ViewController.m in Sources */,
 				BC53BF5B1CA50EF1004CCA88 /* AppDelegate.m in Sources */,
 				BC53BF581CA50EF1004CCA88 /* main.m in Sources */,
@@ -496,6 +496,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "afn网络二次封装+图片上传/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "-7K--.afn-----------";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -508,6 +509,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "afn网络二次封装+图片上传/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "-7K--.afn-----------";
 				PRODUCT_NAME = "$(TARGET_NAME)";
