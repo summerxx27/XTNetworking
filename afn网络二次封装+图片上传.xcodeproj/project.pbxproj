@@ -120,8 +120,8 @@
 		BC53BF551CA50EF1004CCA88 /* afn网络二次封装+图片上传 */ = {
 			isa = PBXGroup;
 			children = (
-				BC53BF931CA53401004CCA88 /* XSNetworking.m */,
 				BC53BF941CA53401004CCA88 /* XSNetworking.h */,
+				BC53BF931CA53401004CCA88 /* XSNetworking.m */,
 				BC53BF591CA50EF1004CCA88 /* AppDelegate.h */,
 				BC53BF5A1CA50EF1004CCA88 /* AppDelegate.m */,
 				BC53BF5C1CA50EF1004CCA88 /* ViewController.h */,

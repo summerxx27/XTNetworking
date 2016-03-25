@@ -43,7 +43,7 @@ typedef NS_ENUM(NSInteger, ImageCompressionType) {
  *  @param imageData        图片(NSData)
  *  @param name             后台提供的字段
  *  @param mimeType         图片的类型
- *  @param imageCount       图片的个数
+ *  @param compressionType  图片压缩类型
  *  @param imageSize        图片的size
  *  @param imageIdentifier  图片的唯一标识(例如是头像: 可以传一个用户ID)
  *  @param failBlock        失败的回调
