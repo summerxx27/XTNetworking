@@ -42,7 +42,7 @@ typedef NS_ENUM(NSInteger, ImageCompressionType) {
  *
  *  @param url              后台提供的url
  *  @param parameter        body
- *  @param imageData        图片(NSData)
+ *  @param images           图片数组
  *  @param name             后台提供的字段
  *  @param mimeType         图片的类型
  *  @param compressionType  图片压缩类型
@@ -52,31 +52,14 @@ typedef NS_ENUM(NSInteger, ImageCompressionType) {
  @  @param successBlock     成功的回调
  */
 + (void)XSUploadImageNetworkRequestWithURL:(NSString *)url
-                      parameter:(NSDictionary *)parameter
-                          image:(UIImage *)image
-                           name:(NSString *)name
-                compressionType:(ImageCompressionType)compressionType
-                       mimeType:(NSString  *)mimeType
-                      imageSize:(CGSize)imageSize
-                imageIdentifier:(NSString *)imageIdentifier
-                  successResult:(void (^)(id result))successBlock
-                     failResult:(void (^)(id error))failBlock;
-/**
- *  多张图片上传
- *
- *  @param url       url
- *  @param parameter dic(body)
- *  @param imageSize 图片的尺寸
- *  @param images    图片数组
- *  @param compressionType png / jpg
- *  @param imageIdentifier 后台给的标识
- */
-+ (void)XSUploadManyImagesNetworkRequestWithURL:(NSString *)url
-                                      parameter:(NSMutableDictionary *)parameter
-                                      imageSize:(CGSize)imageSize
-                                compressionType:(ImageCompressionType)compressionType
-                                      imageIdentifier:(NSString *)imageIdentifier
-                                         images:(NSMutableArray *)images
-                                  successResult:(void (^)(id result))successBlock
-                                     failResult:(void (^)(id error))failBlock;
+                                 parameter:(NSDictionary *)parameter
+                                    images:(NSMutableArray *)images
+                                      name:(NSString *)name
+                           compressionType:(ImageCompressionType)compressionType
+                                  mimeType:(NSString *)mimeType
+                                 imageSize:(CGSize)imageSize
+                           imageIdentifier:(NSString *)imageIdentifier
+                             successResult:(void (^)(id result))successBlock
+                                failResult:(void (^)(id error))failBlock;
+
 @end

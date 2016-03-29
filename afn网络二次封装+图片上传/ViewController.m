@@ -26,11 +26,7 @@
     }];
     // 这里接口就不提供了
     // 上传图片
-//    [XSNetworking XSUploadImageNetworkRequestWithURL:@"" parameter:nil image:image name:@"icon" mimeType:@"image/jpeg" imageSize:CGSizeMake(55, 55) imageIdentifier:@"146456154" successResult:^(id result) {
-//        //
-//    } failResult:^(id error) {
-//        //
-//    }];
+//    XSNetworking XSUploadImageNetworkRequestWithURL:<#(NSString *)#> parameter:<#(NSDictionary *)#> images:<#(NSMutableArray *)#> name:<#(NSString *)#> compressionType:<#(ImageCompressionType)#> mimeType:<#(NSString *)#> imageSize:<#(CGSize)#> imageIdentifier:<#(NSString *)#> successResult:<#^(id)successBlock#> failResult:<#^(id)failBlock#>
     
 }
 

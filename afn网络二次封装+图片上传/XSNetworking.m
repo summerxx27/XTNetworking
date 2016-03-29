@@ -65,7 +65,7 @@
      }];
 }
 
-+ (void)XSUploadImageNetworkRequestWithURL:(NSString *)url parameter:(NSDictionary *)parameter image:(UIImage *)image name:(NSString *)name compressionType:(ImageCompressionType)compressionType mimeType:(NSString *)mimeType imageSize:(CGSize)imageSize imageIdentifier:(NSString *)imageIdentifier successResult:(void (^)(id))successBlock failResult:(void (^)(id))failBlock
++ (void)XSUploadImageNetworkRequestWithURL:(NSString *)url parameter:(NSDictionary *)parameter images:(NSMutableArray *)images name:(NSString *)name compressionType:(ImageCompressionType)compressionType mimeType:(NSString *)mimeType imageSize:(CGSize)imageSize imageIdentifier:(NSString *)imageIdentifier successResult:(void (^)(id))successBlock failResult:(void (^)(id))failBlock
 {
     NSString *encodingStr = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
@@ -78,18 +78,6 @@
          }
          else
          {
-             NSData *imageData;
-             // enum pic type
-             ImageCompressionType type = compressionType;
-             switch (type) {
-                 case JPGType:
-                    imageData = UIImageJPEGRepresentation([self imageWithImageSimple:image scaledToSize:imageSize], 1.0);
-                     break;
-                 case PNGType:
-                     imageData = UIImagePNGRepresentation([self imageWithImageSimple:image scaledToSize:imageSize]);
-                 default:
-                     break;
-             }
              
              AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
              [manager POST:encodingStr parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
@@ -98,18 +86,28 @@
                  formatter.dateFormat = @"yyyyMMddHHmmss";
                  NSString *str = [formatter stringFromDate:[NSDate date]];
                  // Respectively named after PNG and JPG
-                 switch (type) {
-                     case PNGType: {
-                         NSString *fileName = [NSString stringWithFormat:@"%@%@.png", str,imageIdentifier];
-                         [formData appendPartWithFileData:imageData name:name fileName:fileName mimeType:mimeType];
-                         break;
-                     }
-                     case JPGType: {
-                         NSString *fileName = [NSString stringWithFormat:@"%@%@.jpg", str,imageIdentifier];
-                         [formData appendPartWithFileData:imageData name:name fileName:fileName mimeType:mimeType];
-                         break;
+                 
+                 NSData *imageData;
+                 // enum pic type
+                 for (UIImage *image in images) {
+                     
+                     ImageCompressionType type = compressionType;
+                     switch (type) {
+                         case PNGType: {
+                             imageData = UIImagePNGRepresentation([self imageWithImageSimple:image scaledToSize:imageSize]);
+                             NSString *fileName = [NSString stringWithFormat:@"%@%@.png", str,imageIdentifier];
+                             [formData appendPartWithFileData:imageData name:name fileName:fileName mimeType:mimeType];
+                             break;
+                         }
+                         case JPGType: {
+                             imageData = UIImageJPEGRepresentation([self imageWithImageSimple:image scaledToSize:imageSize], 1.0);
+                             NSString *fileName = [NSString stringWithFormat:@"%@%@.jpg", str,imageIdentifier];
+                             [formData appendPartWithFileData:imageData name:name fileName:fileName mimeType:mimeType];
+                             break;
+                         }
                      }
                  }
+                 
                  
              } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                  //
@@ -121,45 +119,7 @@
          }
      }];
 }
-+ (void)XSUploadManyImagesNetworkRequestWithURL:(NSString *)url parameter:(NSMutableDictionary *)parameter imageSize:(CGSize)imageSize compressionType:(ImageCompressionType)compressionType imageIdentifier:(NSString *)imageIdentifier images:(NSMutableArray *)images successResult:(void (^)(id))successBlock failResult:(void (^)(id))failBlock
-{
-    NSData *imageData;
-    NSMutableArray *arrayImages;
-    for (UIImage *image in images) {
-        ImageCompressionType type = compressionType;
-        switch (type) {
-            case PNGType: {
-                imageData = UIImagePNGRepresentation([self imageWithImageSimple:image scaledToSize:imageSize]);
-                break;
-            }
-            case JPGType: {
-                imageData = UIImageJPEGRepresentation([self imageWithImageSimple:image scaledToSize:imageSize], 1.0);
-                break;
-            }
-        }
-        // base 64
-        NSString *encodeResult = [imageData base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithLineFeed];
-        [arrayImages addObject:encodeResult];
-    }
-    [parameter setValue:[self JSONString:arrayImages] forKey:imageIdentifier];
-    
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain",@"text/json",@"application/json",@"text/javascript",@"text/html",nil];
-    [manager POST:url parameters:parameter success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        //
-        successBlock(responseObject);
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        //
-        failBlock(error);
-    }];
-    
-}
-// JSON转化为字符串
-+ (NSString *)JSONString:(id)src
-{
-    NSData *d = [NSJSONSerialization dataWithJSONObject:src options:NSJSONWritingPrettyPrinted error:nil];
-    return [[NSString alloc] initWithData:d encoding:NSUTF8StringEncoding];
-}
+
 /**
  *  提示信息
  *
@@ -200,6 +160,7 @@
     
     // Return the new image.
     return newImage;
+    
 }
 
 @end
