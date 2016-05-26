@@ -19,8 +19,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     // 一般的网络请求
-    NSString *url = @"http://60.18.250.166:8066/youme/service1.asmx/GetUserCashTradeDetail2Apple?U_ID=A00000119";
-//    NSString *url = @"http://60.18.250.166:8066/youme/service1.asmx/ItemsTradeALL2Apple?";
+//    NSString *url = @"";
+    NSString *url = @"http://60.18.250.166:8066/youme/service1.asmx/ItemsTradeALL2Apple?";
     [XTNetworking XSNetworkRequestWithURL:url parameter:nil methods:GETMethodsType successResult:^(id result) {
 //        NSAssert([result isKindOfClass:[NSArray class]], @"allData is not an array");
         
