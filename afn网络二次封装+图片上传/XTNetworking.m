@@ -3,20 +3,20 @@
 //  NewStart
 //
 //  Created by zjwang on 16/3/25.
-//  Copyright © 2016年 Xsummerybc. All rights reserved.
+//  Copyright © 2016年 夏天. All rights reserved.
 //
 
-#import "XSNetworking.h"
+#import "XTNetworking.h"
 #import <AFNetworking.h>
 #import <UIKit/UIKit.h>
 #import <MBProgressHUD.h>
-@interface XSNetworking ()
+@interface XTNetworking ()
 
 @property (nonatomic,  assign) NSInteger networkStatus;
 
 @end
 
-@implementation XSNetworking
+@implementation XTNetworking
 + (void)XSNetworkRequestWithURL:(NSString *)url parameter:(NSDictionary *)parameter methods:(MethodsType)methods successResult:(void (^)(id))successBlock failResult:(void (^)(id))failBlock
 {
     NSString *encodingStr = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];

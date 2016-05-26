@@ -3,7 +3,7 @@
 //  NewStart
 //
 //  Created by zjwang on 16/3/25.
-//  Copyright © 2016年 Xsummerybc. All rights reserved.
+//  Copyright © 2016年 夏天. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -19,7 +19,7 @@ typedef NS_ENUM(NSInteger, ImageCompressionType) {
     JPGType     = 1,
 };
 
-@interface XSNetworking : NSObject
+@interface XTNetworking : NSObject
 /**
  *  网络请求
  *
