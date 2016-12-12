@@ -17,7 +17,7 @@
 @end
 
 @implementation XTNetworking
-+ (void)XSNetworkRequestWithURL:(NSString *)url parameter:(NSDictionary *)parameter methods:(MethodsType)methods successResult:(void (^)(id))successBlock failResult:(void (^)(id))failBlock
++ (void)XTNetworkRequestWithURL:(NSString *)url parameter:(NSDictionary *)parameter methods:(MethodsType)methods successResult:(void (^)(id))successBlock failResult:(void (^)(id))failBlock
 {
     NSString *encodingStr = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     //stringByAddingPercentEscapesUsingEncoding
@@ -65,7 +65,7 @@
      }];
 }
 
-+ (void)XSUploadImageNetworkRequestWithURL:(NSString *)url parameter:(NSDictionary *)parameter images:(NSMutableArray *)images name:(NSString *)name compressionType:(ImageCompressionType)compressionType mimeType:(NSString *)mimeType imageSize:(CGSize)imageSize imageIdentifier:(NSString *)imageIdentifier successResult:(void (^)(id))successBlock failResult:(void (^)(id))failBlock
++ (void)XTUploadImageNetworkRequestWithURL:(NSString *)url parameter:(NSDictionary *)parameter images:(NSMutableArray *)images name:(NSString *)name compressionType:(ImageCompressionType)compressionType mimeType:(NSString *)mimeType imageSize:(CGSize)imageSize imageIdentifier:(NSString *)imageIdentifier successResult:(void (^)(id))successBlock failResult:(void (^)(id))failBlock
 {
     NSString *encodingStr = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     

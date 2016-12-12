@@ -29,7 +29,7 @@ typedef NS_ENUM(NSInteger, ImageCompressionType) {
  *  @param SuccessBlock 成功回调的结果
  *  @param failBlock    失败回调的结果
  */
-+ (void)XSNetworkRequestWithURL:(NSString *)url
++ (void)XTNetworkRequestWithURL:(NSString *)url
                       parameter:(NSDictionary *)parameter
                         methods:(MethodsType)methods
                   successResult:(void (^)(id result))successBlock
@@ -51,7 +51,7 @@ typedef NS_ENUM(NSInteger, ImageCompressionType) {
  *  @param failBlock        失败的回调
  @  @param successBlock     成功的回调
  */
-+ (void)XSUploadImageNetworkRequestWithURL:(NSString *)url
++ (void)XTUploadImageNetworkRequestWithURL:(NSString *)url
                                  parameter:(NSDictionary *)parameter
                                     images:(NSMutableArray *)images
                                       name:(NSString *)name
